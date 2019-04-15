@@ -3,6 +3,7 @@
   "description": "",
   "type": "project",
   "keywords": [],
+  "minimum-stability": "alpha",
   "repositories": [
     {
       "type": "composer",
@@ -11,6 +12,22 @@
     {
       "type": "vcs",
       "url": "https://github.com/pantheon-systems/wordpress-composer"
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "advanced-custom-fields/advanced-custom-fields-pro",
+        "version": "5.7.13",
+        "type": "wordpress-plugin",
+        "dist": {
+          "type": "zip",
+          "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download"
+        },
+        "require": {
+          "philippbaschke/acf-pro-installer": "^1.0",
+          "composer/installers": "^1.0"
+        }
+      }
     }
   ],
   "require": {
@@ -55,16 +72,24 @@
       ]
     },
     "installer-paths": {
-      "web/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
-      "web/wp-content/themes/{$name}/": ["type:wordpress-theme"],
-      "web/private/scripts/quicksilver/{$name}/": ["type:quicksilver-script"]
+      "web/wp-content/plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ],
+      "web/wp-content/themes/{$name}/": [
+        "type:wordpress-theme"
+      ],
+      "web/private/scripts/quicksilver/{$name}/": [
+        "type:quicksilver-script"
+      ]
     }
   },
   "autoload": {
     "classmap": [
       "scripts/composer/ScriptHandler.php"
     ],
-    "psr-4": { "PantheonSystems\\WordHatHelpers\\": "tests/behat/helper_classes/" }
+    "psr-4": {
+      "PantheonSystems\\WordHatHelpers\\": "tests/behat/helper_classes/"
+    }
   },
   "scripts": {
     "build-assets": [
