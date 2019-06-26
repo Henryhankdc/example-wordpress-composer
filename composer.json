@@ -117,6 +117,7 @@
     ],
     "unit-test": [
       "./vendor/bin/phpunit tests/unit/*"
-    ]
+    ],
+    "lint": "find web/wp-content -name '*.php' -exec php -l {} \\;"
   }
 }
